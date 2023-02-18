@@ -11,9 +11,16 @@ const (
 	// INT 字面量
 	INT = "INT"
 
-	// ASSIGN PLUS 运算符
-	ASSIGN = "="
-	PLUS   = "+"
+	// ASSIGN PLUS MINUS BANG ASTERISK SLASH LT GT 运算符
+	ASSIGN   = "="
+	PLUS     = "+"
+	MINUS    = "-"
+	BANG     = "!"
+	ASTERISK = "*"
+	SLASH    = "/"
+
+	LT = "<"
+	GT = ">"
 
 	// COMMA SEMICOLON LPAREN RPAREN LBRACE RBRACE 分隔符
 	COMMA     = ","
@@ -27,6 +34,14 @@ const (
 	// FUNCTION LET 关键字
 	FUNCTION = "FUNCTION"
 	LET      = "LET"
+	TRUE     = "TRUE"
+	FALSE    = "FALSE"
+	IF       = "IF"
+	ELSE     = "ELSE"
+	RETURN   = "RETURN"
+
+	EQ     = "=="
+	NOT_EQ = "!="
 )
 
 type TokenType string
@@ -37,8 +52,13 @@ type Token struct {
 }
 
 var keywords = map[string]TokenType{
-	"fn":  FUNCTION,
-	"let": LET,
+	"fn":     FUNCTION,
+	"let":    LET,
+	"true":   TRUE,
+	"false":  FALSE,
+	"if":     IF,
+	"else":   ELSE,
+	"return": RETURN,
 }
 
 func LookupIdent(ident string) TokenType {
